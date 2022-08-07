@@ -6,8 +6,21 @@ import defaultSEOConfig from "../../next-seo.config";
 import { Chakra } from "lib/components/Chakra";
 import Layout from "lib/layout";
 import "lib/styles/globals.css";
+import { store } from "lib/store/store";
+import { Provider } from "react-redux";
+import { useEffect, useState } from "react";
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const [showChild, setShowChild] = useState(false);
+  useEffect(() => {
+    setShowChild(true);
+  }, []);
+
+   if (!showChild) {
+    return null;
+  }
+
   return (
+  <Provider store={store}>
     <Chakra>
       <Head>
         <meta
@@ -20,6 +33,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <Component {...pageProps} />
       </Layout>
     </Chakra>
+  </Provider>
   );
 };
 
