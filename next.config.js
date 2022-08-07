@@ -12,8 +12,12 @@ module.exports = {
     register: true,
   },
   swcMinify: true,
-  reactStrictMode: true,
+  // reactStrictMode: true,
   eslint: {
     dirs: ["src"],
+  },
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    baseURL: process.env.BASE_URL,
   },
 };
