@@ -22,3 +22,4 @@ export function middleware(request: any) {
 export const config = {
   matcher: ['/profile', '/auth'],
 }
+console.log('key')
